@@ -10,11 +10,13 @@ class ZonotopePlotter3D:
     A class for visualizing Zonotopes in 3D.
     """
 
-    def __init__(self, zonotope: Zonotope, color='blue', alpha=0.5, projection_offset=0.2):
+    def __init__(self, zonotope: Zonotope, color='blue', alpha=0.5, projection=True, projection_offset=0.2):
         self.zonotope = zonotope
         self.color = color
         self.alpha = alpha
+        self.projection = projection
         self.projection_offset = projection_offset
+
 
     def plot(self, ax=None):
         """ Plots the zonotope in 3D with optimized zoom and axis limits. """
@@ -42,8 +44,9 @@ class ZonotopePlotter3D:
         ax.set_zlabel('Z')
         ax.set_box_aspect([1, 1, 1])  # Equal aspect ratio
 
-        self._plot_projections(ax, vertices)
-
+        if self.projection:
+            self._plot_projections(ax, vertices)
+            
         return ax
 
     def _compute_convex_hull(self, vertices):
@@ -78,6 +81,6 @@ if __name__ == "__main__":
                            [0.00012384, 0.0, -0.00037083]])
     
     zono = Zonotope(center, generators)
-    plotter = ZonotopePlotter3D(zono, color='red', alpha=0.2, projection_offset=0.001)
+    plotter = ZonotopePlotter3D(zono, color='red', alpha=0.2, projection=True, projection_offset=0.001)
     ax = plotter.plot()
     plt.show()

@@ -9,7 +9,3 @@ Author: Alessio Russo (alessior@kth.se)
 Download the repo, and install using `pip`. See the examples in the `examples` folder.
 
 Requirements: `numpy`, `scipy` and `cvxpy`.
-
-## To do
-
-- Improve matrix zonotopes multiplication

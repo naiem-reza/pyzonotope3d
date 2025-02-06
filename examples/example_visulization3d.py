@@ -73,11 +73,11 @@ class ZonotopePlotter3D:
 # Example Usage
 if __name__ == "__main__":
     center = np.array([1, 1, 1])
-    generators = np.array([[-0.00012384,  0.000473  , -0.00018542],
-       [ 0.00012384,  0.00047301,  0.00018541],
-       [ 0.00012384,  0. , -0.00037083]])
+    generators = np.array([[-0.00012384,  0.000473   , -0.00018542],
+                           [ 0.00012384,  0.00047301 ,  0.00018541],
+                           [ 0.00012384,  0.         , -0.00037083]])
+    
     zono = Zonotope(center, generators)
-
     plotter = ZonotopePlotter3D(zono, color='red', alpha=0.2, projection_offset=0.001)
     ax = plotter.plot()
     plt.show()
